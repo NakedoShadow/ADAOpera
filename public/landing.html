@@ -712,10 +712,161 @@ body::after {
   background-clip: text;
   animation: shimmer 8s linear infinite;
 }
+
+/* ─── Audio Gate Overlay ─────────────────────────────────────────── */
+.audio-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.audio-gate.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.audio-gate-crown {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 32px;
+  animation: crown-float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(124,58,237,0.5));
+}
+
+.audio-gate-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.audio-gate-sub {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+}
+
+.audio-gate-enter {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 14px 40px;
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  transition: all var(--transition);
+  animation: pulse-border 3s ease-in-out infinite;
+}
+
+.audio-gate-enter:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  box-shadow: 0 0 30px var(--glow-purple);
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: var(--glass-border); }
+  50% { border-color: rgba(124,58,237,0.3); }
+}
+
+/* ─── Audio Controls (floating) ─────────────────────────────────── */
+.audio-controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.audio-controls.visible { opacity: 1; }
+
+.audio-controls-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.audio-controls-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: rgba(124,58,237,0.08);
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  font-size: 14px;
+}
+
+.audio-controls-btn:hover {
+  background: rgba(124,58,237,0.2);
+  border-color: var(--accent);
+}
 </style>
 </head>
 
 <body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     AUDIO GATE — Vivaldi L'Hiver
+     ═══════════════════════════════════════════════════════════════ -->
+
+<div class="audio-gate" id="audioGate" onclick="enterOpera()">
+  <svg class="audio-gate-crown" viewBox="0 0 64 64" fill="none">
+    <defs>
+      <linearGradient id="gateCrownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#A855F7"/>
+        <stop offset="50%" stop-color="#7C3AED"/>
+        <stop offset="100%" stop-color="#0055FF"/>
+      </linearGradient>
+    </defs>
+    <path d="M8 48L16 20L26 36L32 12L38 36L48 20L56 48H8Z" stroke="url(#gateCrownGrad)" stroke-width="2.5" fill="rgba(124,58,237,0.08)"/>
+    <circle cx="16" cy="18" r="3" fill="#A855F7" opacity="0.9"/>
+    <circle cx="32" cy="10" r="4" fill="#7C3AED"/>
+    <circle cx="48" cy="18" r="3" fill="#0055FF" opacity="0.9"/>
+    <line x1="8" y1="52" x2="56" y2="52" stroke="url(#gateCrownGrad)" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+  <div class="audio-gate-title">ADA Opera</div>
+  <div class="audio-gate-sub">La Voix de la Reine</div>
+  <div class="audio-gate-enter">Click to Enter</div>
+</div>
+
+<!-- Audio Controls (floating) -->
+<div class="audio-controls" id="audioControls">
+  <span class="audio-controls-label">Vivaldi — L'Hiver</span>
+  <button class="audio-controls-btn" id="audioToggle" onclick="toggleVivaldi(event)">&#9646;&#9646;</button>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      HERO
@@ -1258,6 +1409,163 @@ body::after {
     }
     requestAnimationFrame(drawBallet);
   }
+
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     VIVALDI — L'HIVER (Web Audio Synthesis)
+     Four Seasons, Concerto No.4 in F minor, RV 297
+     Allegro non molto — Opening tremolo theme
+     ═══════════════════════════════════════════════════════════════ -->
+
+<script>
+(function() {
+  'use strict';
+
+  let audioCtx = null;
+  let vivaldiPlaying = false;
+  let vivaldiNodes = [];
+  let vivaldiTimeout = null;
+
+  // Vivaldi L'Hiver — Allegro non molto (opening theme, F minor)
+  // Note frequencies (equal temperament A4=440Hz)
+  const NOTES = {
+    'F3': 174.61, 'G3': 196.00, 'Ab3': 207.65, 'Bb3': 233.08,
+    'C4': 261.63, 'Db4': 277.18, 'Eb4': 311.13, 'F4': 349.23,
+    'G4': 392.00, 'Ab4': 415.30, 'Bb4': 466.16,
+    'C5': 523.25, 'Db5': 554.37, 'Eb5': 622.25, 'F5': 698.46,
+    'G5': 783.99, 'Ab5': 830.61,
+  };
+
+  // Opening bars: tremolo shivering effect + main theme
+  // Each entry: [note, startTime(s), duration(s), velocity(0-1)]
+  const SCORE = [
+    // Bar 1-2: Tremolo trembling (shivering in the cold)
+    // Rapid repeated Eb5 tremolo — 16th notes
+    ...Array.from({length: 16}, (_, i) => ['Eb5', i * 0.12, 0.08, 0.25 + Math.random() * 0.1]),
+    // Bass pedal F3
+    ['F3', 0, 1.92, 0.3],
+
+    // Bar 3-4: Theme entry — descending
+    ['Eb5', 1.92, 0.24, 0.5], ['Db5', 2.16, 0.24, 0.45],
+    ['C5', 2.40, 0.24, 0.5], ['Bb4', 2.64, 0.48, 0.55],
+    ['Ab4', 3.12, 0.24, 0.45], ['G4', 3.36, 0.24, 0.4],
+    ['F4', 3.60, 0.48, 0.5],
+    // Bass
+    ['F3', 1.92, 1.92, 0.3], ['C4', 1.92, 1.92, 0.2],
+
+    // Bar 5-6: Tremolo again (higher intensity)
+    ...Array.from({length: 16}, (_, i) => ['F5', 4.08 + i * 0.12, 0.08, 0.3 + Math.random() * 0.12]),
+    ['Ab3', 4.08, 1.92, 0.3],
+
+    // Bar 7-8: Theme variation — ascending
+    ['C5', 6.0, 0.24, 0.5], ['Db5', 6.24, 0.24, 0.45],
+    ['Eb5', 6.48, 0.24, 0.5], ['F5', 6.72, 0.48, 0.55],
+    ['Eb5', 7.20, 0.24, 0.45], ['Db5', 7.44, 0.24, 0.5],
+    ['C5', 7.68, 0.48, 0.55],
+    ['Ab3', 6.0, 1.92, 0.25], ['Eb4', 6.0, 1.92, 0.2],
+
+    // Bar 9-10: Tremolo diminuendo
+    ...Array.from({length: 16}, (_, i) => ['Eb5', 8.16 + i * 0.12, 0.08, 0.22 - i * 0.01]),
+    ['F3', 8.16, 1.92, 0.25],
+
+    // Bar 11-12: Soft resolution
+    ['Db5', 10.08, 0.36, 0.35], ['C5', 10.44, 0.36, 0.3],
+    ['Bb4', 10.80, 0.36, 0.25], ['Ab4', 11.16, 0.36, 0.2],
+    ['G4', 11.52, 0.48, 0.2], ['F4', 12.0, 0.96, 0.25],
+    ['F3', 10.08, 1.92, 0.2], ['C4', 10.08, 1.92, 0.15],
+  ];
+
+  const TOTAL_DURATION = 13.5; // seconds per loop
+
+  function createViolinTone(ctx, freq, startTime, duration, velocity) {
+    // Sawtooth + slight detune = string-like timbre
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
+    const gain = ctx.createGainNode();
+    const filter = ctx.createBiquadFilter();
+
+    osc1.type = 'sawtooth';
+    osc1.frequency.value = freq;
+    osc2.type = 'sawtooth';
+    osc2.frequency.value = freq * 1.003; // slight detune for richness
+    osc2.detune.value = 5;
+
+    filter.type = 'lowpass';
+    filter.frequency.value = freq * 3.5;
+    filter.Q.value = 0.8;
+
+    const vol = velocity * 0.12; // keep it ambient
+    gain.gain.setValueAtTime(0, startTime);
+    gain.gain.linearRampToValueAtTime(vol, startTime + Math.min(0.04, duration * 0.2));
+    gain.gain.setValueAtTime(vol, startTime + duration * 0.7);
+    gain.gain.linearRampToValueAtTime(0, startTime + duration);
+
+    osc1.connect(filter);
+    osc2.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc1.start(startTime);
+    osc1.stop(startTime + duration + 0.05);
+    osc2.start(startTime);
+    osc2.stop(startTime + duration + 0.05);
+
+    return { osc1, osc2, gain };
+  }
+
+  function playVivaldiLoop() {
+    if (!audioCtx || !vivaldiPlaying) return;
+
+    const now = audioCtx.currentTime + 0.1;
+
+    for (const [note, start, dur, vel] of SCORE) {
+      const freq = NOTES[note];
+      if (freq) {
+        createViolinTone(audioCtx, freq, now + start, dur, vel);
+      }
+    }
+
+    // Schedule next loop
+    vivaldiTimeout = setTimeout(() => {
+      if (vivaldiPlaying) playVivaldiLoop();
+    }, TOTAL_DURATION * 1000);
+  }
+
+  window.enterOpera = function() {
+    const gate = document.getElementById('audioGate');
+    gate.classList.add('hidden');
+
+    // Start audio
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    vivaldiPlaying = true;
+    playVivaldiLoop();
+
+    // Show controls
+    setTimeout(() => {
+      document.getElementById('audioControls').classList.add('visible');
+    }, 800);
+  };
+
+  window.toggleVivaldi = function(e) {
+    e.stopPropagation();
+    const btn = document.getElementById('audioToggle');
+
+    if (vivaldiPlaying) {
+      vivaldiPlaying = false;
+      if (vivaldiTimeout) clearTimeout(vivaldiTimeout);
+      if (audioCtx) audioCtx.suspend();
+      btn.innerHTML = '&#9654;'; // play
+    } else {
+      vivaldiPlaying = true;
+      if (audioCtx) {
+        audioCtx.resume();
+        playVivaldiLoop();
+      }
+      btn.innerHTML = '&#9646;&#9646;'; // pause
+    }
+  };
 
 })();
 </script>
