@@ -833,6 +833,67 @@ body::after {
   background: rgba(124,58,237,0.2);
   border-color: var(--accent);
 }
+
+/* ─── Fullscreen Ballet ────────────────────────────────────────── */
+.ballet-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.ballet-fullscreen.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ballet-fullscreen canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.ballet-fullscreen-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all var(--transition);
+}
+
+.ballet-fullscreen-close:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.ballet-fullscreen-title {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
 </style>
 </head>
 
@@ -860,6 +921,16 @@ body::after {
   <div class="audio-gate-title">ADA Opera</div>
   <div class="audio-gate-sub">La Voix de la Reine</div>
   <div class="audio-gate-enter">Click to Enter</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FULLSCREEN BALLET — Le Ballet de la Reine
+     ═══════════════════════════════════════════════════════════════ -->
+
+<div class="ballet-fullscreen" id="balletFullscreen">
+  <canvas id="balletFullCanvas"></canvas>
+  <button class="ballet-fullscreen-close" onclick="closeBallet()">ESC &mdash; Close</button>
+  <div class="ballet-fullscreen-title">Le Ballet de la Reine &mdash; ADA Opera</div>
 </div>
 
 <!-- Audio Controls (floating) -->
@@ -926,7 +997,7 @@ body::after {
     </div>
 
     <div class="hero-cta">
-      <a href="/" class="btn btn-primary">
+      <a href="javascript:void(0)" onclick="launchBallet()" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polygon points="6,3 13,8 6,13" fill="currentColor"/></svg>
         Launch Opera
       </a>
@@ -1166,9 +1237,9 @@ body::after {
   <div class="footer-brand shimmer-text">ADA Opera</div>
   <div class="footer-sub">Shadow Crystal &bull; A Shadows Company Production &bull; Powered by Claude</div>
   <div class="footer-links">
-    <a href="/" class="footer-link">Launch App</a>
+    <a href="https://github.com/NakedoShadow/ADAOpera" class="footer-link" target="_blank" rel="noopener">Download</a>
     <a href="#features" class="footer-link">Features</a>
-    <a href="https://github.com/nakedo" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://github.com/NakedoShadow" class="footer-link" target="_blank" rel="noopener">GitHub</a>
   </div>
   <div class="footer-legal">
     &copy; 2026 Shadows Company &mdash; NAKEDO. All rights reserved.
@@ -1537,10 +1608,21 @@ body::after {
     const gate = document.getElementById('audioGate');
     gate.classList.add('hidden');
 
-    // Start audio
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    vivaldiPlaying = true;
-    playVivaldiLoop();
+    // Start audio with error handling
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      // Resume if suspended (autoplay policy)
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume().then(() => {
+          console.log('[ADA Opera] AudioContext resumed');
+        });
+      }
+      vivaldiPlaying = true;
+      playVivaldiLoop();
+      console.log('[ADA Opera] Vivaldi L\'Hiver — playing');
+    } catch (err) {
+      console.error('[ADA Opera] Audio init failed:', err);
+    }
 
     // Show controls
     setTimeout(() => {
@@ -1566,6 +1648,229 @@ body::after {
       btn.innerHTML = '&#9646;&#9646;'; // pause
     }
   };
+
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     LE BALLET DE LA REINE — Fullscreen Experience
+     ═══════════════════════════════════════════════════════════════ -->
+
+<script>
+(function() {
+  'use strict';
+
+  let balletActive = false;
+  let balletAnimId = null;
+
+  const BALLET_TOTEMS = 12;
+  const HUES = [270, 250, 290, 230, 310, 260, 280, 240, 300, 220, 285, 255];
+  let totems = [];
+  let tronSegs = [];
+
+  function initTotems(cx, cy, radius) {
+    totems = [];
+    for (let i = 0; i < BALLET_TOTEMS; i++) {
+      const angle = (i / BALLET_TOTEMS) * Math.PI * 2 - Math.PI / 2;
+      const orbit = radius * (0.6 + Math.random() * 0.4);
+      totems.push({
+        baseAngle: angle,
+        orbitRadius: orbit,
+        x: cx + Math.cos(angle) * orbit,
+        y: cy + Math.sin(angle) * orbit,
+        spinAngle: Math.random() * Math.PI * 2,
+        spinSpeed: 0.01 + Math.random() * 0.025,
+        orbitSpeed: 0.002 + Math.random() * 0.004,
+        size: 18 + Math.random() * 14,
+        hue: HUES[i],
+        energy: 0.5 + Math.random() * 0.5,
+        phase: Math.random() * Math.PI * 2,
+        trail: [],
+      });
+    }
+  }
+
+  function drawFullBallet(canvas, ctx, time) {
+    const w = canvas.width;
+    const h = canvas.height;
+    const cx = w / 2;
+    const cy = h / 2;
+    const t = time * 0.001;
+
+    // Fade trail
+    ctx.fillStyle = 'rgba(0,0,0,0.06)';
+    ctx.fillRect(0, 0, w, h);
+
+    // Update totem orbits
+    for (const totem of totems) {
+      totem.baseAngle += totem.orbitSpeed;
+      totem.x = cx + Math.cos(totem.baseAngle) * totem.orbitRadius;
+      totem.y = cy + Math.sin(totem.baseAngle) * totem.orbitRadius;
+      totem.spinAngle += totem.spinSpeed;
+
+      // Store trail
+      totem.trail.push({ x: totem.x, y: totem.y, life: 1 });
+      if (totem.trail.length > 40) totem.trail.shift();
+    }
+
+    // Draw trails
+    for (const totem of totems) {
+      for (let i = 0; i < totem.trail.length - 1; i++) {
+        const p = totem.trail[i];
+        p.life -= 0.02;
+        if (p.life <= 0) continue;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${totem.hue},70%,60%,${p.life * 0.3})`;
+        ctx.fill();
+      }
+    }
+
+    // Draw Tron connections
+    for (let i = tronSegs.length - 1; i >= 0; i--) {
+      const seg = tronSegs[i];
+      seg.life -= 0.004;
+      if (seg.life <= 0) { tronSegs.splice(i, 1); continue; }
+      ctx.strokeStyle = `hsla(${seg.hue},80%,60%,${seg.life * 0.5})`;
+      ctx.lineWidth = 1.5 * seg.life;
+      ctx.beginPath();
+      ctx.moveTo(seg.x1, seg.y1);
+      ctx.lineTo(seg.x2, seg.y2);
+      ctx.stroke();
+    }
+
+    // Draw orbital rings
+    ctx.lineWidth = 0.5;
+    for (const totem of totems) {
+      const alpha = 0.02 + Math.sin(t + totem.phase) * 0.01;
+      ctx.strokeStyle = `hsla(${totem.hue},50%,50%,${alpha})`;
+      ctx.beginPath();
+      ctx.arc(cx, cy, totem.orbitRadius, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Draw totems
+    for (const totem of totems) {
+      const pulse = 0.7 + Math.sin(t * 2 + totem.phase) * 0.3;
+      const s = totem.size * pulse;
+
+      // Glow halo
+      const grad = ctx.createRadialGradient(totem.x, totem.y, 0, totem.x, totem.y, s * 3);
+      grad.addColorStop(0, `hsla(${totem.hue},70%,60%,0.12)`);
+      grad.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(totem.x, totem.y, s * 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Spinning top
+      ctx.save();
+      ctx.translate(totem.x, totem.y);
+      ctx.rotate(totem.spinAngle);
+
+      ctx.beginPath();
+      ctx.moveTo(0, -s);
+      ctx.lineTo(s * 0.6, 0);
+      ctx.lineTo(0, s * 0.5);
+      ctx.lineTo(-s * 0.6, 0);
+      ctx.closePath();
+      ctx.fillStyle = `hsla(${totem.hue},60%,50%,${0.2 * pulse})`;
+      ctx.fill();
+      ctx.strokeStyle = `hsla(${totem.hue},70%,65%,${0.6 * pulse})`;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Center core
+      ctx.beginPath();
+      ctx.arc(0, 0, s * 0.15, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${totem.hue},80%,70%,${0.8 * pulse})`;
+      ctx.fill();
+
+      ctx.restore();
+
+      // Tron trace emission
+      if (Math.random() < 0.015) {
+        const other = totems[Math.floor(Math.random() * totems.length)];
+        if (other !== totem) {
+          tronSegs.push({
+            x1: totem.x, y1: totem.y,
+            x2: other.x, y2: other.y,
+            hue: totem.hue,
+            life: 1,
+          });
+        }
+      }
+    }
+
+    // Crown in center
+    ctx.save();
+    ctx.translate(cx, cy);
+    const crownPulse = 0.8 + Math.sin(t * 1.2) * 0.2;
+    ctx.globalAlpha = crownPulse * 0.7;
+    ctx.font = `${36 * crownPulse}px serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#A855F7';
+    ctx.shadowColor = '#7C3AED';
+    ctx.shadowBlur = 30;
+    ctx.fillText('\u2655', 0, 0);
+    ctx.shadowBlur = 0;
+    ctx.restore();
+
+    if (balletActive) {
+      balletAnimId = requestAnimationFrame((t) => drawFullBallet(canvas, ctx, t));
+    }
+  }
+
+  window.launchBallet = function() {
+    const overlay = document.getElementById('balletFullscreen');
+    const canvas = document.getElementById('balletFullCanvas');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const radius = Math.min(canvas.width, canvas.height) * 0.35;
+    initTotems(canvas.width / 2, canvas.height / 2, radius);
+    tronSegs = [];
+
+    balletActive = true;
+    overlay.classList.add('active');
+
+    requestAnimationFrame((t) => drawFullBallet(canvas, ctx, t));
+
+    // Start Vivaldi if not playing
+    if (typeof window.enterOpera === 'function' && !document.getElementById('audioGate').classList.contains('hidden')) {
+      window.enterOpera();
+    }
+  };
+
+  window.closeBallet = function() {
+    balletActive = false;
+    if (balletAnimId) cancelAnimationFrame(balletAnimId);
+    document.getElementById('balletFullscreen').classList.remove('active');
+  };
+
+  // ESC key to close
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && balletActive) {
+      window.closeBallet();
+    }
+  });
+
+  // Resize handler
+  window.addEventListener('resize', function() {
+    if (balletActive) {
+      const canvas = document.getElementById('balletFullCanvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const radius = Math.min(canvas.width, canvas.height) * 0.35;
+      initTotems(canvas.width / 2, canvas.height / 2, radius);
+    }
+  });
 
 })();
 </script>
