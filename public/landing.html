@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ADA Opera — The Queen's Voice | A Shadows Company Production</title>
+<meta name="description" content="ADA Opera — The world's most advanced browser-native DAW. 32 instruments, DJ Suite, CRYSTALLINE AI pipeline, Ballet Visualizer, Media Hub. Zero ads. Zero tracking. Powered by Claude." />
+<meta property="og:title" content="ADA Opera — Shadow Crystal" />
+<meta property="og:description" content="32 instruments. 256 features. 16 languages. Zero compromise." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#000000" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   ADA OPERA — LANDING PAGE
+   Shadow Crystal Design System v3.0
+   A Shadows Company Production — Powered by Claude
+   ═══════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #000000;
+  --surface: rgba(255,255,255,0.03);
+  --surface-hover: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
+  --glass-border-hover: rgba(124,58,237,0.3);
+  --primary: #0055FF;
+  --secondary: #7C3AED;
+  --accent: #A855F7;
+  --text: #E8E8ED;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-muted: rgba(255,255,255,0.30);
+  --glow-blue: rgba(0,85,255,0.15);
+  --glow-purple: rgba(124,58,237,0.12);
+  --transition: 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Military Grid Overlay ──────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Ambient Glow ───────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 20% 20%, rgba(124,58,237,0.04), transparent),
+    radial-gradient(ellipse 600px 800px at 80% 80%, rgba(0,85,255,0.03), transparent),
+    radial-gradient(ellipse 400px 400px at 50% 50%, rgba(168,85,247,0.02), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Animated crystal constellation */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+/* Crown icon */
+.hero-crown {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  animation: crown-float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(124,58,237,0.4));
+}
+
+@keyframes crown-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-6px) rotate(1deg); }
+  50% { transform: translateY(-12px) rotate(0deg); }
+  75% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(168,85,247,0.08);
+  border: 1px solid rgba(168,85,247,0.15);
+  border-radius: 100px;
+  padding: 6px 20px;
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #E8E8ED 40%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+}
+
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+.hero-tagline span {
+  color: var(--primary);
+}
+
+/* Stats bar */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* CTA */
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 6px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 0 30px var(--glow-blue), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.btn-primary:hover {
+  background: #0066ff;
+  box-shadow: 0 0 50px var(--glow-blue), 0 4px 20px rgba(0,85,255,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-glass {
+  background: var(--glass);
+  border-color: var(--glass-border);
+  color: var(--text);
+  backdrop-filter: blur(12px);
+}
+
+.btn-glass:hover {
+  background: var(--surface-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FEATURES SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+.features {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ─── Feature Cards — Bento Grid ─────────────────────────────────── */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  position: relative;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 40px 32px 32px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+
+.feature-card:hover {
+  border-color: var(--glass-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px var(--glow-purple);
+}
+
+/* Hero card (Ballet) — full width */
+.feature-card.card-hero {
+  grid-column: span 12;
+  min-height: 420px;
+  padding: 48px 40px;
+}
+
+/* Wide cards */
+.feature-card.card-wide {
+  grid-column: span 6;
+  min-height: 340px;
+}
+
+/* Standard cards */
+.feature-card.card-std {
+  grid-column: span 4;
+  min-height: 300px;
+}
+
+.feature-number {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: rgba(124,58,237,0.08);
+  border: 1px solid rgba(124,58,237,0.12);
+  transition: all var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+  background: rgba(124,58,237,0.15);
+  border-color: rgba(124,58,237,0.25);
+  box-shadow: 0 0 25px rgba(124,58,237,0.15);
+}
+
+.feature-name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.feature-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.feature-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--text-muted);
+}
+
+.feature-tag.tag-purple {
+  background: rgba(124,58,237,0.08);
+  border-color: rgba(124,58,237,0.15);
+  color: var(--accent);
+}
+
+.feature-tag.tag-blue {
+  background: rgba(0,85,255,0.08);
+  border-color: rgba(0,85,255,0.15);
+  color: var(--primary);
+}
+
+/* Feature visual containers */
+.feature-visual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  overflow: hidden;
+  border-radius: 0 16px 16px 0;
+  pointer-events: none;
+}
+
+.feature-visual canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TECH STRIP
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tech-strip {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: 40px 24px;
+  background: rgba(255,255,255,0.01);
+}
+
+.tech-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.tech-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 8px var(--glow-purple);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MANIFESTO SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+.manifesto {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 24px;
+  text-align: center;
+}
+
+.manifesto-quote {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.manifesto-quote em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.manifesto-author {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Principles */
+.principles {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 64px;
+}
+
+.principle {
+  text-align: center;
+  max-width: 200px;
+}
+
+.principle-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 8px rgba(124,58,237,0.3));
+}
+
+.principle-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.principle-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════════ */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.footer-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--accent);
+}
+
+.footer-legal {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+}
+
+.footer-legal a {
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .feature-card.card-wide { grid-column: span 6; }
+  .feature-card.card-std { grid-column: span 6; }
+  .feature-visual { display: none; }
+}
+
+@media (max-width: 768px) {
+  .feature-card.card-hero,
+  .feature-card.card-wide,
+  .feature-card.card-std {
+    grid-column: span 12;
+    min-height: auto;
+  }
+  .hero-stats { gap: 24px; }
+  .stat-value { font-size: 22px; }
+  .tech-inner { gap: 24px; }
+  .principles { gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 40px 16px; }
+  .features { padding: 48px 16px 80px; }
+  .hero-cta { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 280px; justify-content: center; }
+}
+
+/* ─── Animations ─────────────────────────────────────────────────── */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content { animation: fade-up 1s ease-out 0.2s both; }
+.section-header { animation: fade-up 0.8s ease-out 0.1s both; }
+
+.feature-card {
+  opacity: 0;
+  animation: fade-up 0.7s ease-out both;
+}
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* ─── Scroll reveal ──────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Glow accent lines ──────────────────────────────────────────── */
+.glow-line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  border-radius: 2px;
+  margin: 0 auto 32px;
+  box-shadow: 0 0 12px var(--glow-purple);
+}
+
+/* ─── Crystal shimmer ────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--text) 0%, var(--accent) 50%, var(--text) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 8s linear infinite;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════════ -->
+
+<section class="hero">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+
+  <div class="hero-content">
+    <!-- Crown SVG -->
+    <svg class="hero-crown" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#A855F7"/>
+          <stop offset="50%" stop-color="#7C3AED"/>
+          <stop offset="100%" stop-color="#0055FF"/>
+        </linearGradient>
+        <filter id="crownGlow">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path d="M8 48L16 20L26 36L32 12L38 36L48 20L56 48H8Z" stroke="url(#crownGrad)" stroke-width="2.5" fill="rgba(124,58,237,0.08)" filter="url(#crownGlow)"/>
+      <circle cx="16" cy="18" r="3" fill="#A855F7" opacity="0.9"/>
+      <circle cx="32" cy="10" r="4" fill="#7C3AED"/>
+      <circle cx="48" cy="18" r="3" fill="#0055FF" opacity="0.9"/>
+      <line x1="8" y1="52" x2="56" y2="52" stroke="url(#crownGrad)" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+    <div class="hero-badge">Shadow Crystal &mdash; A Shadows Company Production</div>
+
+    <h1 class="hero-title">ADA Opera</h1>
+    <p class="hero-subtitle">La Voix de la Reine</p>
+    <p class="hero-tagline">The world's most advanced <span>browser-native DAW</span></p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-value">32</div>
+        <div class="stat-label">Instruments</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">256</div>
+        <div class="stat-label">Features</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">13</div>
+        <div class="stat-label">Engines</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">16</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Paywalls</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="/" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polygon points="6,3 13,8 6,13" fill="currentColor"/></svg>
+        Launch Opera
+      </a>
+      <a href="#features" class="btn btn-glass">Explore Features</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TECH STRIP
+     ═══════════════════════════════════════════════════════════════ -->
+
+<div class="tech-strip">
+  <div class="tech-inner">
+    <div class="tech-item"><span class="tech-dot"></span>React 19</div>
+    <div class="tech-item"><span class="tech-dot"></span>Tone.js 15</div>
+    <div class="tech-item"><span class="tech-dot"></span>Web Audio API</div>
+    <div class="tech-item"><span class="tech-dot"></span>Zustand 5</div>
+    <div class="tech-item"><span class="tech-dot"></span>TypeScript 5.8</div>
+    <div class="tech-item"><span class="tech-dot"></span>Tauri 2 Desktop</div>
+    <div class="tech-item"><span class="tech-dot"></span>Powered by Claude</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURES
+     ═══════════════════════════════════════════════════════════════ -->
+
+<section class="features" id="features">
+  <div class="section-header reveal">
+    <div class="section-tag">Core Arsenal</div>
+    <h2 class="section-title">Five Pillars of Shadow Crystal</h2>
+    <div class="glow-line"></div>
+    <p class="section-subtitle">Each feature is a weapon. Together, they form an orchestra of pure creative power.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <!-- ═ FEATURE 1 — Ballet (Hero card) ═ -->
+    <div class="feature-card card-hero reveal">
+      <div class="feature-visual">
+        <canvas id="balletViz" width="540" height="420"></canvas>
+      </div>
+      <div style="max-width: 50%; position: relative; z-index: 2;">
+        <div class="feature-number">01 &mdash; Visualization</div>
+        <div class="feature-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="10" stroke="#A855F7" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="14" cy="14" r="5" stroke="#7C3AED" stroke-width="1.5"/>
+            <circle cx="14" cy="8" r="2" fill="#A855F7"/>
+            <circle cx="19" cy="17" r="2" fill="#0055FF"/>
+            <circle cx="9" cy="17" r="2" fill="#7C3AED"/>
+          </svg>
+        </div>
+        <h3 class="feature-name">Le Ballet de la Reine</h3>
+        <p class="feature-desc">
+          Inception-style spinning totems dance with your audio in real-time.
+          8 frequency-driven ballerinas with Tron laser traces, Pong ball physics,
+          bubble shields, and three visual modes — Stellaire, Tron, MCP&nbsp;5.
+          Click the crown to unleash free mode.
+        </p>
+        <div class="feature-tags">
+          <span class="feature-tag tag-purple">FFT-Driven</span>
+          <span class="feature-tag tag-purple">3 Trace Modes</span>
+          <span class="feature-tag">Real-Time Canvas</span>
+          <span class="feature-tag">Fullscreen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═ FEATURE 2 — Orchestra ═ -->
+    <div class="feature-card card-wide reveal">
+      <div class="feature-number">02 &mdash; Orchestra</div>
+      <div class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4" y="18" width="3" height="8" rx="1" fill="#A855F7" opacity="0.7"/>
+          <rect x="9" y="14" width="3" height="12" rx="1" fill="#7C3AED" opacity="0.8"/>
+          <rect x="14" y="10" width="3" height="16" rx="1" fill="#0055FF"/>
+          <rect x="19" y="14" width="3" height="12" rx="1" fill="#7C3AED" opacity="0.8"/>
+          <rect x="24" y="18" width="3" height="8" rx="1" fill="#A855F7" opacity="0.7"/>
+          <path d="M5 8 L14 3 L23 8" stroke="#A855F7" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">32-Instrument Orchestra<br/>&amp; Vivaldi Conductor</h3>
+      <p class="feature-desc">
+        A full symphonic ensemble — strings, woodwinds, brass, percussion, keyboards — all synthesized in the browser.
+        Vivaldi AI conducts: auto-orchestration, Four Seasons presets, velocity curves, bowing expression engine.
+        Play classical music with feeling that rivals hardware.
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag tag-blue">32 Instruments</span>
+        <span class="feature-tag tag-purple">5 Sections</span>
+        <span class="feature-tag">Vivaldi AI</span>
+        <span class="feature-tag">Bowing Engine</span>
+      </div>
+    </div>
+
+    <!-- ═ FEATURE 3 — DJ Suite ═ -->
+    <div class="feature-card card-wide reveal">
+      <div class="feature-number">03 &mdash; DJ Suite</div>
+      <div class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="11" stroke="#7C3AED" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="14" cy="14" r="7" stroke="#A855F7" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="14" cy="14" r="3" fill="#0055FF"/>
+          <line x1="14" y1="3" x2="14" y2="7" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">DJ Turntable Suite</h3>
+      <p class="feature-desc">
+        Four skins (Vinyl, CDJ, Old School, Futuristic), four modes (Manual, Auto, Karaoke, Remix).
+        Dual decks with crossfader, AutoMix with spectral morphing, Kamelot Wheel for harmonic mixing,
+        record crate, drag-and-drop queue. A legitimate DJ workstation — in your browser.
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag tag-blue">4 Skins</span>
+        <span class="feature-tag tag-purple">4 Modes</span>
+        <span class="feature-tag">AutoMix</span>
+        <span class="feature-tag">Karaoke</span>
+        <span class="feature-tag">Remix</span>
+      </div>
+    </div>
+
+    <!-- ═ FEATURE 4 — CRYSTALLINE ═ -->
+    <div class="feature-card card-std reveal">
+      <div class="feature-number">04 &mdash; AI Pipeline</div>
+      <div class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,2 26,9 26,19 14,26 2,19 2,9" stroke="#7C3AED" stroke-width="1.5" fill="rgba(124,58,237,0.06)"/>
+          <polygon points="14,6 22,11 22,17 14,22 6,17 6,11" stroke="#A855F7" stroke-width="1" fill="rgba(168,85,247,0.04)"/>
+          <circle cx="14" cy="14" r="3" fill="#0055FF" opacity="0.8"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">CRYSTALLINE</h3>
+      <p class="feature-desc">
+        6-stage AI audio clarity pipeline. RNNoise, DeepFilterNet3, MossFormer2,
+        Resemble Enhance — real-time metrics: SNR, PESQ, STOI. Three modes:
+        Realtime&nbsp;(&lt;20ms), Studio&nbsp;(&lt;50ms), Crystal&nbsp;(max&nbsp;quality).
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag tag-blue">6 AI Stages</span>
+        <span class="feature-tag tag-purple">&lt;20ms Latency</span>
+      </div>
+    </div>
+
+    <!-- ═ FEATURE 5 — Media Hub ═ -->
+    <div class="feature-card card-std reveal">
+      <div class="feature-number">05 &mdash; Media Hub</div>
+      <div class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="3" y="6" width="10" height="8" rx="2" stroke="#A855F7" stroke-width="1.5"/>
+          <rect x="15" y="6" width="10" height="8" rx="2" stroke="#0055FF" stroke-width="1.5"/>
+          <rect x="9" y="16" width="10" height="8" rx="2" stroke="#7C3AED" stroke-width="1.5"/>
+          <path d="M13 10 L15 10" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M14 14 L14 16" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">Shadow Media Hub</h3>
+      <p class="feature-desc">
+        ShadowGrab (1000+ sites, format conversion, Shadow Seal watermarking),
+        ShadowPix (16-tool image editor), Video Engine (trim, filters, frame export).
+        Download &rarr; Edit &rarr; Create &rarr; Mix — all in one place.
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag tag-purple">Grab</span>
+        <span class="feature-tag tag-blue">Pix</span>
+        <span class="feature-tag">Video</span>
+      </div>
+    </div>
+
+    <!-- ═ FEATURE 5b — Bonus: Spectrum + Partition ═ -->
+    <div class="feature-card card-std reveal">
+      <div class="feature-number">+ &mdash; And More</div>
+      <div class="feature-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M4 20 Q8 8, 14 14 Q20 20, 24 8" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="4" cy="20" r="2" fill="#A855F7" opacity="0.6"/>
+          <circle cx="14" cy="14" r="2" fill="#0055FF" opacity="0.6"/>
+          <circle cx="24" cy="8" r="2" fill="#A855F7" opacity="0.6"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">Spectrum &amp; Score</h3>
+      <p class="feature-desc">
+        6-panel spectrum galaxy (Spectrogram, FFT, Waveform, Phase Scope, VU L/R).
+        Real-time note detection via Scribe engine. ABC notation parser with score
+        viewer and playback. Studio mixer with per-channel control.
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag tag-purple">6 Analyzers</span>
+        <span class="feature-tag">Scribe AI</span>
+        <span class="feature-tag tag-blue">Score Parser</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MANIFESTO
+     ═══════════════════════════════════════════════════════════════ -->
+
+<section class="manifesto reveal">
+  <p class="manifesto-quote">
+    &ldquo;We work in the <em>shadows</em> to serve the Light.&rdquo;
+  </p>
+  <p class="manifesto-author">ADA &mdash; Shadows Company Creed</p>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-icon">&#x2727;</div>
+      <div class="principle-title">Zero Paywall</div>
+      <div class="principle-desc">Every feature is free. No premium tiers, no locked doors.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">&#x2606;</div>
+      <div class="principle-title">Zero Tracking</div>
+      <div class="principle-desc">No analytics. No cookies. Your music is yours alone.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">&#x25C8;</div>
+      <div class="principle-title">Zero Ads</div>
+      <div class="principle-desc">Pure creative space. No interruptions, no compromises.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">&#x2726;</div>
+      <div class="principle-title">Open Source</div>
+      <div class="principle-desc">Built in the open. Inspect, modify, contribute.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════ -->
+
+<footer class="footer">
+  <div class="footer-brand shimmer-text">ADA Opera</div>
+  <div class="footer-sub">Shadow Crystal &bull; A Shadows Company Production &bull; Powered by Claude</div>
+  <div class="footer-links">
+    <a href="/" class="footer-link">Launch App</a>
+    <a href="#features" class="footer-link">Features</a>
+    <a href="https://github.com/nakedo" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="footer-legal">
+    &copy; 2026 Shadows Company &mdash; NAKEDO. All rights reserved.
+    <br/>Built with <a href="https://www.anthropic.com" target="_blank" rel="noopener">Claude</a> by Anthropic.
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS — Canvas visuals + Scroll reveal
+     ═══════════════════════════════════════════════════════════════ -->
+
+<script>
+(function() {
+  'use strict';
+
+  // ─── Scroll Reveal ──────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ─── Hero Canvas — Crystal Constellation ────────────────────────
+  const heroCanvas = document.getElementById('heroCanvas');
+  if (heroCanvas) {
+    const ctx = heroCanvas.getContext('2d');
+    let w, h;
+    const nodes = [];
+    const NODE_COUNT = 60;
+
+    function resize() {
+      w = heroCanvas.width = heroCanvas.offsetWidth;
+      h = heroCanvas.height = heroCanvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < NODE_COUNT; i++) {
+      nodes.push({
+        x: Math.random() * 2000,
+        y: Math.random() * 1200,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: 1 + Math.random() * 2,
+        hue: 240 + Math.random() * 80, // blue→purple
+        alpha: 0.15 + Math.random() * 0.3,
+      });
+    }
+
+    function drawHero(time) {
+      ctx.clearRect(0, 0, w, h);
+
+      // Move + wrap
+      for (const n of nodes) {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < -20) n.x = w + 20;
+        if (n.x > w + 20) n.x = -20;
+        if (n.y < -20) n.y = h + 20;
+        if (n.y > h + 20) n.y = -20;
+      }
+
+      // Draw connections
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 180) {
+            const alpha = (1 - dist / 180) * 0.08;
+            ctx.strokeStyle = `rgba(124,58,237,${alpha})`;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw nodes
+      for (const n of nodes) {
+        const pulse = Math.sin(time * 0.001 + n.hue) * 0.5 + 0.5;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r + pulse, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${n.hue},70%,65%,${n.alpha * (0.6 + pulse * 0.4)})`;
+        ctx.fill();
+
+        // Glow
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${n.hue},70%,65%,${n.alpha * 0.06})`;
+        ctx.fill();
+      }
+
+      requestAnimationFrame(drawHero);
+    }
+    requestAnimationFrame(drawHero);
+  }
+
+  // ─── Ballet Feature Visual — Mini Totem Preview ─────────────────
+  const balletCanvas = document.getElementById('balletViz');
+  if (balletCanvas) {
+    const bCtx = balletCanvas.getContext('2d');
+    const totems = [];
+    const NUM_TOTEMS = 6;
+    const bW = balletCanvas.width;
+    const bH = balletCanvas.height;
+    const cx = bW / 2;
+    const cy = bH / 2;
+    const radius = Math.min(bW, bH) * 0.3;
+
+    const hues = [270, 250, 290, 230, 310, 260];
+
+    for (let i = 0; i < NUM_TOTEMS; i++) {
+      const angle = (i / NUM_TOTEMS) * Math.PI * 2 - Math.PI / 2;
+      totems.push({
+        x: cx + Math.cos(angle) * radius,
+        y: cy + Math.sin(angle) * radius,
+        angle: Math.random() * Math.PI * 2,
+        speed: 0.015 + Math.random() * 0.02,
+        size: 14 + Math.random() * 8,
+        hue: hues[i],
+        energy: 0.5 + Math.random() * 0.5,
+        phase: Math.random() * Math.PI * 2,
+      });
+    }
+
+    // Tron segments
+    const tronSegs = [];
+
+    function drawBallet(time) {
+      bCtx.clearRect(0, 0, bW, bH);
+
+      const t = time * 0.001;
+
+      // Draw connections (subtle)
+      bCtx.lineWidth = 0.8;
+      for (let i = 0; i < totems.length; i++) {
+        const next = totems[(i + 1) % totems.length];
+        const alpha = 0.04 + Math.sin(t + i) * 0.02;
+        bCtx.strokeStyle = `hsla(${totems[i].hue},60%,60%,${alpha})`;
+        bCtx.beginPath();
+        bCtx.moveTo(totems[i].x, totems[i].y);
+        bCtx.lineTo(next.x, next.y);
+        bCtx.stroke();
+      }
+
+      // Draw Tron traces
+      for (let i = tronSegs.length - 1; i >= 0; i--) {
+        const seg = tronSegs[i];
+        seg.life -= 0.003;
+        if (seg.life <= 0) { tronSegs.splice(i, 1); continue; }
+        bCtx.strokeStyle = `hsla(${seg.hue},80%,60%,${seg.life * 0.4})`;
+        bCtx.lineWidth = 1.5;
+        bCtx.beginPath();
+        bCtx.moveTo(seg.x1, seg.y1);
+        bCtx.lineTo(seg.x2, seg.y2);
+        bCtx.stroke();
+      }
+
+      // Draw totems
+      for (const totem of totems) {
+        totem.angle += totem.speed;
+        const pulse = 0.7 + Math.sin(t * 2 + totem.phase) * 0.3;
+        const s = totem.size * pulse;
+
+        // Glow halo
+        const grad = bCtx.createRadialGradient(totem.x, totem.y, 0, totem.x, totem.y, s * 2.5);
+        grad.addColorStop(0, `hsla(${totem.hue},70%,60%,0.08)`);
+        grad.addColorStop(1, 'transparent');
+        bCtx.fillStyle = grad;
+        bCtx.beginPath();
+        bCtx.arc(totem.x, totem.y, s * 2.5, 0, Math.PI * 2);
+        bCtx.fill();
+
+        // Spinning top shape
+        bCtx.save();
+        bCtx.translate(totem.x, totem.y);
+        bCtx.rotate(totem.angle);
+
+        // Diamond/top shape
+        bCtx.beginPath();
+        bCtx.moveTo(0, -s);
+        bCtx.lineTo(s * 0.6, 0);
+        bCtx.lineTo(0, s * 0.5);
+        bCtx.lineTo(-s * 0.6, 0);
+        bCtx.closePath();
+        bCtx.fillStyle = `hsla(${totem.hue},60%,50%,${0.15 * pulse})`;
+        bCtx.fill();
+        bCtx.strokeStyle = `hsla(${totem.hue},70%,65%,${0.5 * pulse})`;
+        bCtx.lineWidth = 1.5;
+        bCtx.stroke();
+
+        // Center ring
+        bCtx.beginPath();
+        bCtx.arc(0, 0, s * 0.2, 0, Math.PI * 2);
+        bCtx.fillStyle = `hsla(${totem.hue},80%,70%,${0.7 * pulse})`;
+        bCtx.fill();
+
+        bCtx.restore();
+
+        // Tron trace emission (occasional)
+        if (Math.random() < 0.02) {
+          const other = totems[Math.floor(Math.random() * totems.length)];
+          if (other !== totem) {
+            tronSegs.push({
+              x1: totem.x, y1: totem.y,
+              x2: other.x, y2: other.y,
+              hue: totem.hue,
+              life: 1,
+            });
+          }
+        }
+      }
+
+      // Crown in center
+      bCtx.save();
+      bCtx.translate(cx, cy);
+      const crownPulse = 0.8 + Math.sin(t * 1.5) * 0.2;
+      bCtx.globalAlpha = crownPulse * 0.6;
+      bCtx.font = `${24 * crownPulse}px serif`;
+      bCtx.textAlign = 'center';
+      bCtx.textBaseline = 'middle';
+      bCtx.fillStyle = '#A855F7';
+      bCtx.shadowColor = '#7C3AED';
+      bCtx.shadowBlur = 20;
+      bCtx.fillText('\u2655', 0, 0); // ♕
+      bCtx.shadowBlur = 0;
+      bCtx.restore();
+
+      requestAnimationFrame(drawBallet);
+    }
+    requestAnimationFrame(drawBallet);
+  }
+
+})();
+</script>
+
+</body>
+</html>

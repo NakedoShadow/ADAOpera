@@ -1,0 +1,1338 @@
+{
+  "SIGNAL_CHANGED": [
+    {
+      "id": "crys-pipe-benchmark",
+      "message": "Benchmark complete"
+    },
+    {
+      "id": "piano-chord-suggest",
+      "message": "Chord suggestions for F minor"
+    },
+    {
+      "id": "fx-space-reverb",
+      "message": "Reverb: size 60%, decay 3s"
+    },
+    {
+      "id": "grab-seal-serial",
+      "message": "Serial generated: QSA000001"
+    }
+  ],
+  "STATE_CHANGED": [
+    {
+      "id": "crys-pipe-realtime",
+      "message": "CRYSTALLINE mode: REALTIME (<20ms)",
+      "changes": [
+        {
+          "key": "crystallineMode",
+          "before": "STUDIO",
+          "after": "REALTIME"
+        }
+      ]
+    },
+    {
+      "id": "crys-pipe-studio",
+      "message": "CRYSTALLINE mode: STUDIO (<50ms)",
+      "changes": [
+        {
+          "key": "crystallineMode",
+          "before": "REALTIME",
+          "after": "STUDIO"
+        }
+      ]
+    },
+    {
+      "id": "crys-pipe-crystal",
+      "message": "CRYSTALLINE mode: CRYSTAL (max quality)",
+      "changes": [
+        {
+          "key": "crystallineMode",
+          "before": "STUDIO",
+          "after": "CRYSTAL"
+        }
+      ]
+    },
+    {
+      "id": "viv-cond-tempo",
+      "message": "Tempo: 140 BPM",
+      "changes": [
+        {
+          "key": "bpm",
+          "before": 120,
+          "after": 140
+        }
+      ]
+    },
+    {
+      "id": "viv-sec-strings",
+      "message": "strings section: 6 instruments active",
+      "changes": [
+        {
+          "key": "activeInstruments",
+          "before": [
+            "piano",
+            "violin-1"
+          ],
+          "after": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viv-sec-woodwinds",
+      "message": "woodwinds section: 8 instruments active",
+      "changes": [
+        {
+          "key": "activeInstruments",
+          "before": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp"
+          ],
+          "after": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp",
+            "piccolo",
+            "flute",
+            "oboe",
+            "english-horn",
+            "clarinet",
+            "bass-clarinet",
+            "bassoon",
+            "contrabassoon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viv-sec-brass",
+      "message": "brass section: 6 instruments active",
+      "changes": [
+        {
+          "key": "activeInstruments",
+          "before": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp",
+            "piccolo",
+            "flute",
+            "oboe",
+            "english-horn",
+            "clarinet",
+            "bass-clarinet",
+            "bassoon",
+            "contrabassoon"
+          ],
+          "after": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp",
+            "piccolo",
+            "flute",
+            "oboe",
+            "english-horn",
+            "clarinet",
+            "bass-clarinet",
+            "bassoon",
+            "contrabassoon",
+            "french-horn",
+            "trumpet",
+            "cornet",
+            "trombone",
+            "bass-trombone",
+            "tuba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viv-sec-percussion",
+      "message": "percussion section: 8 instruments active",
+      "changes": [
+        {
+          "key": "activeInstruments",
+          "before": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp",
+            "piccolo",
+            "flute",
+            "oboe",
+            "english-horn",
+            "clarinet",
+            "bass-clarinet",
+            "bassoon",
+            "contrabassoon",
+            "french-horn",
+            "trumpet",
+            "cornet",
+            "trombone",
+            "bass-trombone",
+            "tuba"
+          ],
+          "after": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp",
+            "piccolo",
+            "flute",
+            "oboe",
+            "english-horn",
+            "clarinet",
+            "bass-clarinet",
+            "bassoon",
+            "contrabassoon",
+            "french-horn",
+            "trumpet",
+            "cornet",
+            "trombone",
+            "bass-trombone",
+            "tuba",
+            "timpani",
+            "snare",
+            "bass-drum",
+            "cymbals",
+            "triangle",
+            "tambourine",
+            "glockenspiel",
+            "xylophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viv-arr-tutti",
+      "message": "Tutti: all 32 instruments active",
+      "changes": [
+        {
+          "key": "activeInstruments",
+          "before": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp",
+            "piccolo",
+            "flute",
+            "oboe",
+            "english-horn",
+            "clarinet",
+            "bass-clarinet",
+            "bassoon",
+            "contrabassoon",
+            "french-horn",
+            "trumpet",
+            "cornet",
+            "trombone",
+            "bass-trombone",
+            "tuba",
+            "timpani",
+            "snare",
+            "bass-drum",
+            "cymbals",
+            "triangle",
+            "tambourine",
+            "glockenspiel",
+            "xylophone"
+          ],
+          "after": [
+            "piano",
+            "violin-1",
+            "violin-2",
+            "viola",
+            "cello",
+            "contrabass",
+            "harp",
+            "piccolo",
+            "flute",
+            "oboe",
+            "english-horn",
+            "clarinet",
+            "bass-clarinet",
+            "bassoon",
+            "contrabassoon",
+            "french-horn",
+            "trumpet",
+            "cornet",
+            "trombone",
+            "bass-trombone",
+            "tuba",
+            "timpani",
+            "snare",
+            "bass-drum",
+            "cymbals",
+            "triangle",
+            "tambourine",
+            "glockenspiel",
+            "xylophone",
+            "celesta",
+            "harpsichord",
+            "organ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viv-season-spring",
+      "message": "La Primavera — E major, 132 BPM, allegro",
+      "changes": [
+        {
+          "key": "bpm",
+          "before": 140,
+          "after": 132
+        },
+        {
+          "key": "key",
+          "before": "C",
+          "after": "E"
+        }
+      ]
+    },
+    {
+      "id": "viv-season-summer",
+      "message": "L'Estate — G minor, 160 BPM, presto",
+      "changes": [
+        {
+          "key": "bpm",
+          "before": 132,
+          "after": 160
+        },
+        {
+          "key": "key",
+          "before": "E",
+          "after": "G"
+        },
+        {
+          "key": "mode",
+          "before": "major",
+          "after": "minor"
+        }
+      ]
+    },
+    {
+      "id": "viv-season-autumn",
+      "message": "L'Autunno — F major, 108 BPM, allegro",
+      "changes": [
+        {
+          "key": "bpm",
+          "before": 160,
+          "after": 108
+        },
+        {
+          "key": "key",
+          "before": "G",
+          "after": "F"
+        },
+        {
+          "key": "mode",
+          "before": "minor",
+          "after": "major"
+        }
+      ]
+    },
+    {
+      "id": "viv-season-winter",
+      "message": "L'Inverno — F minor, 72 BPM, largo",
+      "changes": [
+        {
+          "key": "bpm",
+          "before": 108,
+          "after": 72
+        },
+        {
+          "key": "mode",
+          "before": "major",
+          "after": "minor"
+        }
+      ]
+    },
+    {
+      "id": "piano-midi-record",
+      "message": "MIDI recording: ARMED",
+      "changes": [
+        {
+          "key": "recording",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    {
+      "id": "plat-mix-crossfade",
+      "message": "Crossfader: 75%",
+      "changes": [
+        {
+          "key": "crossfader",
+          "before": 50,
+          "after": 75
+        }
+      ]
+    },
+    {
+      "id": "plat-skin-cd",
+      "message": "Skin: CDJ Modern",
+      "changes": [
+        {
+          "key": "djSkin",
+          "before": "vinyl",
+          "after": "cdj"
+        }
+      ]
+    },
+    {
+      "id": "plat-skin-oldschool",
+      "message": "Skin: Old School",
+      "changes": [
+        {
+          "key": "djSkin",
+          "before": "cdj",
+          "after": "oldschool"
+        }
+      ]
+    },
+    {
+      "id": "plat-skin-futuristic",
+      "message": "Skin: Futuristic",
+      "changes": [
+        {
+          "key": "djSkin",
+          "before": "oldschool",
+          "after": "futuristic"
+        }
+      ]
+    },
+    {
+      "id": "beat-tempo-bpm",
+      "message": "BPM: 140",
+      "changes": [
+        {
+          "key": "bpm",
+          "before": 72,
+          "after": 140
+        }
+      ]
+    },
+    {
+      "id": "mix-master-vol",
+      "message": "Master volume: -3dB",
+      "changes": [
+        {
+          "key": "masterVolume",
+          "before": 0,
+          "after": -3
+        }
+      ]
+    },
+    {
+      "id": "rec-cap-stop",
+      "message": "Recording stopped & saved",
+      "changes": [
+        {
+          "key": "recording",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  ],
+  "ENGINE_ACTION": [
+    {
+      "id": "crys-denoise-rnnoise",
+      "message": "RNNoise pre-filter: strength 90%"
+    },
+    {
+      "id": "crys-denoise-deepfilter",
+      "message": "DeepFilterNet3: attenuation 30dB"
+    },
+    {
+      "id": "crys-enh-superres",
+      "message": "Super-resolution 48kHz: ON"
+    },
+    {
+      "id": "viv-cond-auto",
+      "message": "Auto-orchestrated 2 instruments"
+    },
+    {
+      "id": "viv-arr-solo",
+      "message": "Solo mode: first instrument soloed"
+    },
+    {
+      "id": "viv-arr-chamber",
+      "message": "Chamber arrangement: strings quintet + piano"
+    },
+    {
+      "id": "piano-snd-grand",
+      "message": "Piano preset: Grand Piano"
+    },
+    {
+      "id": "piano-snd-upright",
+      "message": "Piano preset: Upright Piano"
+    },
+    {
+      "id": "piano-snd-electric",
+      "message": "Piano preset: Electric Piano"
+    },
+    {
+      "id": "piano-snd-synth",
+      "message": "Piano preset: Synth Piano"
+    },
+    {
+      "id": "violin-expr-vibrato",
+      "message": "Vibrato: depth 60 cents, rate 6Hz"
+    },
+    {
+      "id": "violin-expr-portamento",
+      "message": "Portamento: 300ms"
+    },
+    {
+      "id": "violin-tech-pizz",
+      "message": "Pizzicato: ON"
+    },
+    {
+      "id": "spec-wave-time",
+      "message": "Time domain waveform toggled"
+    },
+    {
+      "id": "spec-freq-fft",
+      "message": "FFT analyzer toggled"
+    },
+    {
+      "id": "spec-meter-vu",
+      "message": "VU meter toggled"
+    },
+    {
+      "id": "spec-meter-phase",
+      "message": "Phase scope toggled"
+    },
+    {
+      "id": "plat-skin-vinyl",
+      "message": "Skin: Vinyl Classic"
+    },
+    {
+      "id": "beat-tempo-tap",
+      "message": "Tap tempo: 140 BPM"
+    },
+    {
+      "id": "beat-sync-audio",
+      "message": "Audio sync: ON"
+    },
+    {
+      "id": "beat-sync-video",
+      "message": "Video sync: ON"
+    },
+    {
+      "id": "beat-sync-image",
+      "message": "Image sync: ON"
+    },
+    {
+      "id": "beat-sync-midi",
+      "message": "MIDI clock sync: ON"
+    },
+    {
+      "id": "beat-metro-enable",
+      "message": "Metronome: ON"
+    },
+    {
+      "id": "beat-metro-subdiv",
+      "message": "Subdivisions: 8"
+    },
+    {
+      "id": "beat-quant-grid",
+      "message": "Grid snap: ON"
+    },
+    {
+      "id": "beat-quant-res",
+      "message": "Quantize: 1/8 note"
+    },
+    {
+      "id": "beat-quant-swing",
+      "message": "Swing: 40%"
+    },
+    {
+      "id": "beat-quant-humanize",
+      "message": "Humanize: 30%"
+    },
+    {
+      "id": "rec-cap-start",
+      "message": "Recording started"
+    },
+    {
+      "id": "orch-str-violin1",
+      "message": "Violon I activated (G3-E7)"
+    },
+    {
+      "id": "orch-str-violin2",
+      "message": "Violon II activated (G3-E7)"
+    },
+    {
+      "id": "orch-str-viola",
+      "message": "Alto activated (C3-E6)"
+    },
+    {
+      "id": "orch-str-cello",
+      "message": "Violoncelle activated (C2-C6)"
+    },
+    {
+      "id": "orch-wind-flute",
+      "message": "Flute activated (C4-D7)"
+    },
+    {
+      "id": "orch-wind-oboe",
+      "message": "Hautbois activated (Bb3-A6)"
+    },
+    {
+      "id": "orch-wind-clarinet",
+      "message": "Clarinette activated (D3-Bb6)"
+    },
+    {
+      "id": "orch-wind-bassoon",
+      "message": "Basson activated (Bb1-Eb5)"
+    },
+    {
+      "id": "orch-brass-horn",
+      "message": "Cor activated (B1-F5)"
+    },
+    {
+      "id": "orch-brass-trumpet",
+      "message": "Trompette activated (F#3-D6)"
+    },
+    {
+      "id": "orch-brass-trombone",
+      "message": "Trombone activated (E2-Bb4)"
+    },
+    {
+      "id": "orch-brass-tuba",
+      "message": "Tuba activated (D1-F4)"
+    },
+    {
+      "id": "orch-perc-timpani",
+      "message": "Timbales activated (D2-C4)"
+    },
+    {
+      "id": "orch-perc-cymbals",
+      "message": "Cymbales activated (C5-C5)"
+    },
+    {
+      "id": "orch-perc-triangle",
+      "message": "Triangle activated (C6-C6)"
+    },
+    {
+      "id": "orch-perc-harp",
+      "message": "Harpe activated (C1-G#7)"
+    },
+    {
+      "id": "grab-conv-gif",
+      "message": "Convert to GIF: 20fps, 320px wide"
+    },
+    {
+      "id": "grab-seal-qr",
+      "message": "QR Watermark: ON"
+    },
+    {
+      "id": "grab-seal-snow",
+      "message": "Snowflake Seal: ON"
+    },
+    {
+      "id": "pix-adj-brightness",
+      "message": "Brightness: 30"
+    },
+    {
+      "id": "pix-adj-contrast",
+      "message": "Contrast: 20"
+    },
+    {
+      "id": "pix-adj-saturation",
+      "message": "Saturation: 40"
+    },
+    {
+      "id": "pix-adj-levels",
+      "message": "Levels: black=10 white=240 gamma=1.20"
+    },
+    {
+      "id": "pix-flt-blur",
+      "message": "Blur: 8px"
+    },
+    {
+      "id": "pix-flt-sharpen",
+      "message": "Sharpen: 70%"
+    },
+    {
+      "id": "pix-flt-denoise",
+      "message": "Denoise: 2 pass(es)"
+    },
+    {
+      "id": "pix-flt-vignette",
+      "message": "Vignette: 60%"
+    },
+    {
+      "id": "pix-tf-resize",
+      "message": "Resize: 1280×720"
+    },
+    {
+      "id": "pix-tf-rotate",
+      "message": "Rotate: 90°"
+    },
+    {
+      "id": "pix-tf-flip",
+      "message": "Flip horizontal applied"
+    },
+    {
+      "id": "pix-pre-grayscale",
+      "message": "Preset: Grayscale"
+    },
+    {
+      "id": "pix-pre-sepia",
+      "message": "Preset: Sepia"
+    },
+    {
+      "id": "pix-pre-invert",
+      "message": "Preset: Invert"
+    },
+    {
+      "id": "pix-pre-autoenhance",
+      "message": "Auto-Enhance applied (1st/99th percentile stretch)"
+    },
+    {
+      "id": "vid-edit-trim",
+      "message": "Trim: 5s → 20s"
+    },
+    {
+      "id": "vid-edit-speed",
+      "message": "Speed: 1.5x"
+    },
+    {
+      "id": "vid-aud-volume",
+      "message": "Audio volume: 80%"
+    },
+    {
+      "id": "vid-aud-mute",
+      "message": "Audio: MUTED"
+    },
+    {
+      "id": "vid-flt-brightness",
+      "message": "Video brightness: 20"
+    },
+    {
+      "id": "vid-flt-contrast",
+      "message": "Video contrast: 1.3"
+    },
+    {
+      "id": "vid-flt-grayscale",
+      "message": "Grayscale: ON"
+    },
+    {
+      "id": "vid-exp-frames",
+      "message": "Extracting frames every 5 frames"
+    }
+  ],
+  "MESSAGE_ONLY": [
+    {
+      "id": "crys-denoise-fingerprint",
+      "message": "Noise fingerprint capture — analyzing 2s of ambient noise"
+    },
+    {
+      "id": "crys-denoise-gate",
+      "message": "Noise gate: threshold -30dB"
+    },
+    {
+      "id": "crys-sep-voice",
+      "message": "Voice isolation: ON"
+    },
+    {
+      "id": "crys-sep-music",
+      "message": "Music extraction: ON"
+    },
+    {
+      "id": "crys-sep-multi",
+      "message": "Multi-speaker separation initialized (MossFormer2)"
+    },
+    {
+      "id": "crys-sep-stems",
+      "message": "Stem splitter: vocals / drums / bass / other"
+    },
+    {
+      "id": "crys-enh-bandwidth",
+      "message": "Bandwidth restore: target 48000Hz"
+    },
+    {
+      "id": "crys-enh-clarity",
+      "message": "Clarity boost: 80%"
+    },
+    {
+      "id": "crys-enh-warmth",
+      "message": "Warmth restore: 60%"
+    },
+    {
+      "id": "viv-cond-balance",
+      "message": "Voice balance mode: 2"
+    },
+    {
+      "id": "viv-cond-dynamics",
+      "message": "Dynamic range: 100/127"
+    },
+    {
+      "id": "viv-arr-duo",
+      "message": "Duo/Trio mode — select instruments from sidebar"
+    },
+    {
+      "id": "piano-keys-88",
+      "message": "Full 88-key mode activated"
+    },
+    {
+      "id": "piano-keys-velocity",
+      "message": "Velocity curve: 80"
+    },
+    {
+      "id": "piano-keys-sustain",
+      "message": "Sustain pedal: ON"
+    },
+    {
+      "id": "piano-keys-transpose",
+      "message": "Transpose: 3 semitones"
+    },
+    {
+      "id": "piano-midi-playback",
+      "message": "MIDI playback started"
+    },
+    {
+      "id": "piano-midi-export",
+      "message": "MIDI export — generating .mid file"
+    },
+    {
+      "id": "piano-chord-detect",
+      "message": "Chord detection: ON"
+    },
+    {
+      "id": "piano-chord-prog",
+      "message": "Common progressions: I-V-vi-IV, ii-V-I, I-IV-V"
+    },
+    {
+      "id": "piano-chord-arpegg",
+      "message": "Arpeggiator: rate 8"
+    },
+    {
+      "id": "violin-bow-pressure",
+      "message": "Bow pressure: 90/127"
+    },
+    {
+      "id": "violin-bow-speed",
+      "message": "Bow speed: 80/127"
+    },
+    {
+      "id": "violin-bow-position",
+      "message": "Bow position: 70%"
+    },
+    {
+      "id": "violin-bow-type",
+      "message": "Bowing: detache / legato / staccato / martele"
+    },
+    {
+      "id": "violin-expr-glissando",
+      "message": "Glissando range: 7 semitones"
+    },
+    {
+      "id": "violin-expr-tremolo",
+      "message": "Tremolo speed: 12"
+    },
+    {
+      "id": "violin-str-g",
+      "message": "G string (Sol) — deep, rich tone"
+    },
+    {
+      "id": "violin-str-d",
+      "message": "D string (Re) — warm, mellow"
+    },
+    {
+      "id": "violin-str-a",
+      "message": "A string (La) — bright, singing"
+    },
+    {
+      "id": "violin-str-e",
+      "message": "E string (Mi) — brilliant, piercing"
+    },
+    {
+      "id": "violin-tech-spicc",
+      "message": "Spiccato: ON"
+    },
+    {
+      "id": "violin-tech-harm",
+      "message": "Harmonics: ON"
+    },
+    {
+      "id": "violin-tech-colleg",
+      "message": "Col legno: ON"
+    },
+    {
+      "id": "part-read-import",
+      "message": "Open file dialog for score import"
+    },
+    {
+      "id": "part-read-musicxml",
+      "message": "MusicXML parser ready"
+    },
+    {
+      "id": "part-read-midi",
+      "message": "MIDI file import ready"
+    },
+    {
+      "id": "part-read-abc",
+      "message": "ABC notation parser ready"
+    },
+    {
+      "id": "part-play-solo",
+      "message": "Playback: solo instrument"
+    },
+    {
+      "id": "part-play-section",
+      "message": "Playback: section"
+    },
+    {
+      "id": "part-play-orchestra",
+      "message": "Playback: full orchestra"
+    },
+    {
+      "id": "part-play-loop",
+      "message": "Loop selection enabled"
+    },
+    {
+      "id": "part-edit-note",
+      "message": "Note entry mode"
+    },
+    {
+      "id": "part-edit-rest",
+      "message": "Rest entry mode"
+    },
+    {
+      "id": "part-edit-dynamic",
+      "message": "Dynamics palette open"
+    },
+    {
+      "id": "part-edit-articul",
+      "message": "Articulations palette open"
+    },
+    {
+      "id": "part-ana-harmony",
+      "message": "Harmony analysis running"
+    },
+    {
+      "id": "part-ana-pattern",
+      "message": "Pattern detection running"
+    },
+    {
+      "id": "part-ana-structure",
+      "message": "Structure map generated"
+    },
+    {
+      "id": "part-ana-compare",
+      "message": "Score comparison mode"
+    },
+    {
+      "id": "spec-wave-stereo",
+      "message": "Stereo split view toggled"
+    },
+    {
+      "id": "spec-wave-zoom",
+      "message": "Waveform zoom: 5x"
+    },
+    {
+      "id": "spec-wave-color",
+      "message": "Waveform color mode cycled"
+    },
+    {
+      "id": "spec-freq-bars",
+      "message": "Bar graph mode toggled"
+    },
+    {
+      "id": "spec-freq-3d",
+      "message": "3D waterfall view toggled"
+    },
+    {
+      "id": "spec-freq-peak",
+      "message": "Peak hold toggled"
+    },
+    {
+      "id": "spec-gram-linear",
+      "message": "Spectrogram: linear scale"
+    },
+    {
+      "id": "spec-gram-log",
+      "message": "Spectrogram: log scale"
+    },
+    {
+      "id": "spec-gram-mel",
+      "message": "Spectrogram: mel scale"
+    },
+    {
+      "id": "spec-gram-chromag",
+      "message": "Spectrogram: chromagram"
+    },
+    {
+      "id": "spec-meter-peak",
+      "message": "Peak meter toggled"
+    },
+    {
+      "id": "spec-meter-lufs",
+      "message": "LUFS meter toggled"
+    },
+    {
+      "id": "plat-deck-a",
+      "message": "Deck A selected"
+    },
+    {
+      "id": "plat-deck-b",
+      "message": "Deck B selected"
+    },
+    {
+      "id": "plat-deck-load",
+      "message": "Load track to active deck"
+    },
+    {
+      "id": "plat-deck-eject",
+      "message": "Track ejected"
+    },
+    {
+      "id": "plat-mix-sync",
+      "message": "Beat sync: ON"
+    },
+    {
+      "id": "plat-mix-cue",
+      "message": "Cue point set"
+    },
+    {
+      "id": "plat-mix-loop",
+      "message": "Loop control active"
+    },
+    {
+      "id": "plat-scratch-enable",
+      "message": "Scratch: ON"
+    },
+    {
+      "id": "plat-scratch-sensitivity",
+      "message": "Scratch sensitivity: 80"
+    },
+    {
+      "id": "plat-scratch-reverse",
+      "message": "Reverse play: ON"
+    },
+    {
+      "id": "plat-scratch-brake",
+      "message": "Brake effect triggered"
+    },
+    {
+      "id": "beat-tempo-detect",
+      "message": "Auto BPM detection — analyzing audio input"
+    },
+    {
+      "id": "beat-tempo-ramp",
+      "message": "Tempo ramp over 16 bars"
+    },
+    {
+      "id": "beat-metro-sound",
+      "message": "Metronome click sound selection"
+    },
+    {
+      "id": "beat-metro-accent",
+      "message": "Accent pattern editor"
+    },
+    {
+      "id": "mix-ch-volume",
+      "message": "Channel volume: -3dB"
+    },
+    {
+      "id": "mix-ch-pan",
+      "message": "Pan: 0.5"
+    },
+    {
+      "id": "mix-ch-mute",
+      "message": "Mute/Solo toggled"
+    },
+    {
+      "id": "mix-ch-group",
+      "message": "Group assignment panel"
+    },
+    {
+      "id": "mix-eq-low",
+      "message": "EQ Low: 3dB"
+    },
+    {
+      "id": "mix-eq-mid",
+      "message": "EQ Mid: -2dB"
+    },
+    {
+      "id": "mix-eq-high",
+      "message": "EQ High: 4dB"
+    },
+    {
+      "id": "mix-eq-param",
+      "message": "Parametric EQ editor open"
+    },
+    {
+      "id": "mix-send-a",
+      "message": "Send A (Reverb): -10dB"
+    },
+    {
+      "id": "mix-send-b",
+      "message": "Send B (Delay): -12dB"
+    },
+    {
+      "id": "mix-send-c",
+      "message": "Send C (Chorus): -15dB"
+    },
+    {
+      "id": "mix-send-master",
+      "message": "Master bus routing"
+    },
+    {
+      "id": "mix-master-limiter",
+      "message": "Limiter ceiling: -0.5dB"
+    },
+    {
+      "id": "mix-master-stereo",
+      "message": "Stereo width: 120%"
+    },
+    {
+      "id": "mix-master-mono",
+      "message": "Mono check: ON"
+    },
+    {
+      "id": "fx-space-delay",
+      "message": "Delay: 500ms, feedback 50%"
+    },
+    {
+      "id": "fx-space-echo",
+      "message": "Echo: 4 taps"
+    },
+    {
+      "id": "fx-space-convol",
+      "message": "Convolution reverb — load impulse response"
+    },
+    {
+      "id": "fx-mod-chorus",
+      "message": "Chorus depth: 70%"
+    },
+    {
+      "id": "fx-mod-flanger",
+      "message": "Flanger rate: 0.8Hz"
+    },
+    {
+      "id": "fx-mod-phaser",
+      "message": "Phaser: 12 stages"
+    },
+    {
+      "id": "fx-mod-tremolo",
+      "message": "Tremolo rate: 6Hz"
+    },
+    {
+      "id": "fx-dyn-compress",
+      "message": "Compressor: ratio 6, thresh -15dB"
+    },
+    {
+      "id": "fx-dyn-expand",
+      "message": "Expander: ratio 3"
+    },
+    {
+      "id": "fx-dyn-deesser",
+      "message": "De-Esser: 7000Hz"
+    },
+    {
+      "id": "fx-dyn-transient",
+      "message": "Transient shaper: attack 30%"
+    },
+    {
+      "id": "fx-dist-overdrive",
+      "message": "Overdrive: 50%"
+    },
+    {
+      "id": "fx-dist-saturation",
+      "message": "Saturation: 40%"
+    },
+    {
+      "id": "fx-dist-bitcrush",
+      "message": "Bitcrusher: 8 bits"
+    },
+    {
+      "id": "fx-dist-waveshape",
+      "message": "Waveshaper curve editor"
+    },
+    {
+      "id": "rec-cap-pause",
+      "message": "Recording paused"
+    },
+    {
+      "id": "rec-cap-monitor",
+      "message": "Input monitor: ON"
+    },
+    {
+      "id": "rec-fmt-wav",
+      "message": "Format: WAV (PCM lossless)"
+    },
+    {
+      "id": "rec-fmt-flac",
+      "message": "Format: FLAC (compressed lossless)"
+    },
+    {
+      "id": "rec-fmt-mp3",
+      "message": "Format: MP3 (320kbps)"
+    },
+    {
+      "id": "rec-fmt-ogg",
+      "message": "Format: OGG Vorbis"
+    },
+    {
+      "id": "rec-set-sr",
+      "message": "Sample rate: 96000Hz"
+    },
+    {
+      "id": "rec-set-bits",
+      "message": "Bit depth: 32"
+    },
+    {
+      "id": "rec-set-channels",
+      "message": "Channels: 1"
+    },
+    {
+      "id": "rec-set-source",
+      "message": "Input source selection"
+    },
+    {
+      "id": "rec-stream-rtmp",
+      "message": "RTMP stream output configured"
+    },
+    {
+      "id": "rec-stream-icecast",
+      "message": "Icecast server configured"
+    },
+    {
+      "id": "rec-stream-webrtc",
+      "message": "WebRTC stream ready"
+    },
+    {
+      "id": "rec-stream-websocket",
+      "message": "WebSocket audio stream ready"
+    },
+    {
+      "id": "grab-seal-branch",
+      "message": "Community branch selector — assign download to community"
+    },
+    {
+      "id": "pix-tf-crop",
+      "message": "Crop mode — drag to select region"
+    },
+    {
+      "id": "vid-edit-merge",
+      "message": "Merge clips — select video files to concatenate"
+    },
+    {
+      "id": "vid-edit-reverse",
+      "message": "Reverse video — processing via ffmpeg backend"
+    },
+    {
+      "id": "vid-aud-extract",
+      "message": "Extract audio track — select output format"
+    },
+    {
+      "id": "vid-aud-replace",
+      "message": "Replace audio — select audio file"
+    },
+    {
+      "id": "vid-flt-stabilize",
+      "message": "Stabilization — processing via ffmpeg backend"
+    }
+  ],
+  "SKIPPED": [
+    {
+      "id": "piano-midi-input",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-dl-url",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-dl-youtube",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-dl-twitter",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-dl-batch",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-conv-mp4",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-conv-mp3",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-conv-webm",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-fmt-pdf",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-fmt-docx",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-fmt-img",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "grab-fmt-merge",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "vid-exp-mp4",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "vid-exp-webm",
+      "reason": "side-effect (download/file)"
+    },
+    {
+      "id": "vid-exp-gif",
+      "reason": "side-effect (download/file)"
+    }
+  ],
+  "ERROR": []
+}
